@@ -5,7 +5,6 @@ let songItem = Array.from(document.getElementsByClassName("songItem"));
 let masterplay = document.getElementById("masterplay");
 let previous = document.getElementById("previous");
 let next = document.getElementById("next");
-let gif = document.getElementById("gif");
 let Songname = document.getElementById("Songname");
 let customRange2 = document.getElementById("customRange2");
 let currentTimeStart = document.getElementById("currentTimeStart");
@@ -141,7 +140,6 @@ audioSong.addEventListener("timeupdate", () => {
   if (progress == 100) {
     masterplay.classList.remove("fa-circle-pause");
     masterplay.classList.add("fa-circle-play");
-    gif.style.opacity = 0;
   }
 });
 
@@ -172,7 +170,6 @@ Array.from(document.getElementsByClassName("songItemplay")).forEach(
       audioSong.play();
       masterplay.classList.remove("fa-circle-play");
       masterplay.classList.add("fa-circle-pause");
-      gif.style.opacity = 1;
     });
   }
 );
@@ -195,7 +192,6 @@ document.addEventListener("keyup", (Event) => {
     document.getElementById(songindex).classList.add("fa-circle-pause");
     masterplay.classList.remove("fa-circle-play");
     masterplay.classList.add("fa-circle-pause");
-    gif.style.opacity = 1;
   }
 });
 next.addEventListener("click", () => {
@@ -213,7 +209,6 @@ next.addEventListener("click", () => {
   document.getElementById(songindex).classList.add("fa-circle-pause");
   masterplay.classList.remove("fa-circle-play");
   masterplay.classList.add("fa-circle-pause");
-  gif.style.opacity = 1;
 });
 // backforword button work
 
@@ -233,7 +228,6 @@ document.addEventListener("keyup", (Event) => {
     document.getElementById(songindex).classList.add("fa-circle-pause");
     masterplay.classList.remove("fa-circle-play");
     masterplay.classList.add("fa-circle-pause");
-    gif.style.opacity = 1;
   }
 });
 previous.addEventListener("click", () => {
@@ -251,7 +245,6 @@ previous.addEventListener("click", () => {
   document.getElementById(songindex).classList.add("fa-circle-pause");
   masterplay.classList.remove("fa-circle-play");
   masterplay.classList.add("fa-circle-pause");
-  gif.style.opacity = 1;
 });
 // time upadte
 
@@ -289,14 +282,12 @@ masterplay.addEventListener("click", () => {
     masterplay.classList.add("fa-circle-pause");
     document.getElementById(songindex).classList.remove("fa-circle-play");
     document.getElementById(songindex).classList.add("fa-circle-pause");
-    gif.style.opacity = 1;
   } else {
     audioSong.pause();
     masterplay.classList.remove("fa-circle-pause");
     masterplay.classList.add("fa-circle-play");
     document.getElementById(songindex).classList.remove("fa-circle-pause");
     document.getElementById(songindex).classList.add("fa-circle-play");
-    gif.style.opacity = 0;
   }
 });
 
@@ -310,14 +301,12 @@ document.addEventListener("keyup", (event) => {
       masterplay.classList.add("fa-circle-pause");
       document.getElementById(songindex).classList.remove("fa-circle-play");
       document.getElementById(songindex).classList.add("fa-circle-pause");
-      gif.style.opacity = 1;
     } else {
       audioSong.pause();
       masterplay.classList.remove("fa-circle-pause");
       masterplay.classList.add("fa-circle-play");
       document.getElementById(songindex).classList.remove("fa-circle-pause");
       document.getElementById(songindex).classList.add("fa-circle-play");
-      gif.style.opacity = 0;
     }
   }
 });
