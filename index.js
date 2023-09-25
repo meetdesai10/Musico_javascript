@@ -3,6 +3,8 @@ let songindex = 0;
 let audioSong = new Audio("1.mp3");
 let songItem = Array.from(document.getElementsByClassName("songItem"));
 let masterplay = document.getElementById("masterplay");
+let previous = document.getElementById("previous");
+let next = document.getElementById("next");
 let gif = document.getElementById("gif");
 let Songname = document.getElementById("Songname");
 let customRange2 = document.getElementById("customRange2");
@@ -184,7 +186,7 @@ document.addEventListener("keyup", (Event) => {
     } else {
       songindex++;
     }
-    imgchange.src=songs[songindex].coverPath; 
+    imgchange.src = songs[songindex].coverPath;
     Songname.innerHTML = songs[songindex].songName;
     audioSong.src = `${songindex + 1}.mp3`;
     audioSong.play();
@@ -195,6 +197,23 @@ document.addEventListener("keyup", (Event) => {
     masterplay.classList.add("fa-circle-pause");
     gif.style.opacity = 1;
   }
+});
+next.addEventListener("click", () => {
+  if (songindex >= songs.length - 1) {
+    songindex = 0;
+  } else {
+    songindex++;
+  }
+  imgchange.src = songs[songindex].coverPath;
+  Songname.innerHTML = songs[songindex].songName;
+  audioSong.src = `${songindex + 1}.mp3`;
+  audioSong.play();
+  makeallplay();
+  document.getElementById(songindex).classList.remove("fa-circle-play");
+  document.getElementById(songindex).classList.add("fa-circle-pause");
+  masterplay.classList.remove("fa-circle-play");
+  masterplay.classList.add("fa-circle-pause");
+  gif.style.opacity = 1;
 });
 // backforword button work
 
@@ -205,7 +224,7 @@ document.addEventListener("keyup", (Event) => {
     } else {
       songindex--;
     }
-    imgchange.src=songs[songindex].coverPath;
+    imgchange.src = songs[songindex].coverPath;
     Songname.innerHTML = songs[songindex].songName;
     audioSong.src = `${songindex + 1}.mp3`;
     audioSong.play();
@@ -217,7 +236,23 @@ document.addEventListener("keyup", (Event) => {
     gif.style.opacity = 1;
   }
 });
-
+previous.addEventListener("click", () => {
+  if (songindex <= 0) {
+    songindex = songs.length - 1;
+  } else {
+    songindex--;
+  }
+  imgchange.src = songs[songindex].coverPath;
+  Songname.innerHTML = songs[songindex].songName;
+  audioSong.src = `${songindex + 1}.mp3`;
+  audioSong.play();
+  makeallplay();
+  document.getElementById(songindex).classList.remove("fa-circle-play");
+  document.getElementById(songindex).classList.add("fa-circle-pause");
+  masterplay.classList.remove("fa-circle-play");
+  masterplay.classList.add("fa-circle-pause");
+  gif.style.opacity = 1;
+});
 // time upadte
 
 audioSong.addEventListener("timeupdate", () => {
