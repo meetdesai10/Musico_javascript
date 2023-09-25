@@ -1,0 +1,141 @@
+@import url("https://fonts.googleapis.com/css2?family=Foldit:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Foldit:wght@300&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: black;
+}
+.navigationbar {
+  position: relative;
+  height: fit-content;
+  font-family: "ubuntu", sans-serif;
+}
+.navigationbar ul {
+  gap: 15px;
+}
+.navigationbar ul img {
+  height: 45px;
+}
+
+/* *************** songs list page ************* */
+
+.mainPage {
+  position: relative;
+  background-image: url(bg.jpg);
+  background-size: cover;
+  height: 590px;
+  font-family: "Varela Round", sans-serif;
+  margin: 20px auto;
+  width: fit-content;
+  border-radius: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 1;
+  box-shadow: 0px 0px 5px 5px grey;
+}
+.mainPage::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.316);
+  border-radius: 15px;
+  z-index: -1;
+}
+/* .mainPage .songList .songs{
+    overflow-y: scroll;
+} */
+.mainPage .songList .songs .songList1 .songItem {
+  height: 50px;
+  width: 100%;
+  padding: 5px 5px;
+  box-shadow: 0px 0px 5px 4px grey;
+  border-radius: 20px;
+  display: flex;
+  gap: 30px;
+}
+.mainPage .songList .songs .songList1 .boxshadow {
+  height: 50px;
+  width: 100%;
+  padding: 5px 5px;
+  box-shadow: 0px 0px 0px 0px grey;
+  border-radius: 20px;
+  display: flex;
+  gap: 30px;
+}
+.mainPage .songList .songItem img {
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* **************** bottom ******************** */
+
+.bottom {
+  position: relative;
+  padding: 10px 130px;
+  gap: 15px;
+  z-index: 1;
+}
+.bottom .icons {
+  gap: 15px;
+  font-size: 30px;
+  cursor: pointer;
+}
+.bottom .songinfo {
+  position: absolute;
+  left: 100px;
+  top: 90px;
+  color: white;
+  font-size: 18px;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 600;
+  color: rgb(240, 232, 232);
+  display: block;
+}
+
+.gifanimation{
+  position: absolute;
+  left: 0px;
+  top: 744px;
+  height: 40px;
+  width: 100%;
+  opacity: 0;
+  transition: .4s all ease-in-out;
+  z-index: -1;
+}
+.bottom img {
+  height:40px;
+  border-radius: 50%;
+  box-shadow: 0px 0px 2px 2px;
+}
+@media (max-width:576px) {
+  .bottom{
+    padding: 10px 0px;
+  }
+  .bottom .songinfo{
+    top: 110px;
+    left: 0px;
+  }
+}
+@media (min-width:768px) {
+  .bottom{
+    padding: 10px 100px;
+  }
+  .bottom .songinfo{
+    top: 50px;
+    left: 100px;
+  }
+}
+@media (min-width:992px) {
+  .bottom{
+    padding: 10px 130px;
+  }
+  .bottom .songinfo{
+    top: 50px;
+    left: 130px;
+  }
+}
