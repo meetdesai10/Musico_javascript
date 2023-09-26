@@ -121,7 +121,7 @@ body {
     left: 0px;
   }
   .mainPage .songList .songs .songList1 .songItem{
-    width: 330px;
+    width: 350px;
   }
 }
 @media (min-width:768px) {
