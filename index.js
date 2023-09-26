@@ -129,17 +129,17 @@ let songs = [
 
 audioSong.addEventListener("ended", () => {
   songindex++;
-  
+
   if (songindex >= songs.length) {
     songindex = 0; //
   }
-  
+
   audioSong.src = songs[songindex].filepath;
   audioSong.play();
-  
+
   Songname.innerText = songs[songindex].songName;
   imgchange.src = songs[songindex].coverPath;
-  
+
   makeallplay();
   document.getElementById(songindex).classList.remove("fa-circle-play");
   document.getElementById(songindex).classList.add("fa-circle-pause");
@@ -296,6 +296,26 @@ audioSong.addEventListener("timeupdate", () => {
   currentTimeStart.innerHTML = `${min1}:${sec1}`;
 });
 
+// Add an event listener to handle media playback control from the headphone button
+navigator.mediaSession.setActionHandler("pause", function () {
+  if (!audioSong.paused) {
+    audioSong.pause();
+    masterplay.classList.remove("fa-circle-play");
+    masterplay.classList.add("fa-circle-pause");
+    document.getElementById(songindex).classList.remove("fa-circle-play");
+    document.getElementById(songindex).classList.add("fa-circle-pause");
+  }
+});
+
+navigator.mediaSession.setActionHandler("play", function () {
+  if (audioSong.paused) {
+    audioSong.play();
+    masterplay.classList.remove("fa-circle-pause");
+    masterplay.classList.add("fa-circle-play");
+    document.getElementById(songindex).classList.remove("fa-circle-pause");
+    document.getElementById(songindex).classList.add("fa-circle-play");
+  }
+});
 // handle play and pause
 
 masterplay.addEventListener("click", () => {
@@ -333,5 +353,3 @@ document.addEventListener("keyup", (event) => {
     }
   }
 });
-
-
