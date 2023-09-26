@@ -17,6 +17,8 @@ body {
 }
 .navigationbar ul img {
   height: 45px;
+  border-radius: 20px;
+  margin-right: 10px;
 }
 
 /* *************** songs list page ************* */
