@@ -12,7 +12,6 @@ let currentTimeEnd = document.getElementById("currentTimeEnd");
 var imgchange = document.getElementById("imgchange");
 var songItemplay = document.getElementsByClassName("songItemplay");
 
-
 let songs = [
   {
     songName: "Love me Like you do",
@@ -127,6 +126,26 @@ let songs = [
     coverPath: "28.jpg",
   },
 ];
+
+audioSong.addEventListener("ended", () => {
+  songindex++;
+  
+  if (songindex >= songs.length) {
+    songindex = 0; //
+  }
+  
+  audioSong.src = songs[songindex].filepath;
+  audioSong.play();
+  
+  Songname.innerText = songs[songindex].songName;
+  imgchange.src = songs[songindex].coverPath;
+  
+  makeallplay();
+  document.getElementById(songindex).classList.remove("fa-circle-play");
+  document.getElementById(songindex).classList.add("fa-circle-pause");
+  masterplay.classList.remove("fa-circle-play");
+  masterplay.classList.add("fa-circle-pause");
+});
 
 songItem.forEach((Element, index) => {
   Element.getElementsByTagName("img")[0].src = songs[index].coverPath;
@@ -314,3 +333,5 @@ document.addEventListener("keyup", (event) => {
     }
   }
 });
+
+
