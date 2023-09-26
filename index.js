@@ -10,6 +10,8 @@ let customRange2 = document.getElementById("customRange2");
 let currentTimeStart = document.getElementById("currentTimeStart");
 let currentTimeEnd = document.getElementById("currentTimeEnd");
 var imgchange = document.getElementById("imgchange");
+var songItemplay = document.getElementsByClassName("songItemplay");
+
 
 let songs = [
   {
@@ -140,6 +142,8 @@ audioSong.addEventListener("timeupdate", () => {
   if (progress == 100) {
     masterplay.classList.remove("fa-circle-pause");
     masterplay.classList.add("fa-circle-play");
+    songItemplay[songindex].classList.remove("fa-circle-pause");
+    songItemplay[songindex].classList.add("fa-circle-play");
   }
 });
 
