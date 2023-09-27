@@ -59,6 +59,7 @@ body {
   border-radius: 20px;
   display: flex;
   gap: 30px;
+  cursor: pointer;
 }
 .mainPage .songList .songs .songList1 .boxshadow {
   height: 50px;
@@ -72,6 +73,11 @@ body {
 .mainPage .songList .songItem img {
   height: 50px;
   border-radius: 50%;
+}
+.mainPage .songList .songItem .playAnimation{
+  height: 20px;
+  width: 30px;
+  opacity: 0;
 }
 
 /* **************** bottom ******************** */
