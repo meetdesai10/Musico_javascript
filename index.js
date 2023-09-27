@@ -135,7 +135,8 @@ function makeallplay() {
   );
 }
 if (audioSong.paused) {
-  makeallplay();
+  document.getElementById(songindex).classList.remove("fa-circle-pause");
+  document.getElementById(songindex).classList.add("fa-circle-play");
 }
 audioSong.addEventListener("ended", () => {
   songindex++;
