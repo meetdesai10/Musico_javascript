@@ -188,6 +188,7 @@ Array.from(document.getElementsByClassName("songItemplay")).forEach(
   (Element) => {
     Element.addEventListener("click", (e) => {
       songindex = parseInt(e.target.id);
+     if(audioSong.paused || audioSong.currentTime == 0){
       Songname.innerText = songs[songindex].songName;
       document.getElementById("imgchange").src=songs[songindex].coverPath;
       makeallplay();
@@ -197,6 +198,13 @@ Array.from(document.getElementsByClassName("songItemplay")).forEach(
       audioSong.play();
       masterplay.classList.remove("fa-circle-play");
       masterplay.classList.add("fa-circle-pause");
+     }else if(audioSong.play){
+      audioSong.pause();
+      e.target.classList.remove("fa-circle-pause");
+      e.target.classList.add("fa-circle-play");
+      masterplay.classList.remove("fa-circle-pause");
+      masterplay.classList.add("fa-circle-play");
+     }
     });
   }
 );

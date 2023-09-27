@@ -98,17 +98,10 @@ body {
   color: rgb(240, 232, 232);
   display: block;
 }
-
-.gifanimation{
-  position: absolute;
-  left: 0px;
-  top: 744px;
-  height: 40px;
-  width: 100%;
-  opacity: 0;
-  transition: .4s all ease-in-out;
-  z-index: -1;
+.bottom .form-range{
+  transition: .2s all ease-in-out;
 }
+
 .bottom img {
   height:40px;
   border-radius: 50%;
