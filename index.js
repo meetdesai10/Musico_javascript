@@ -129,8 +129,8 @@ let songs = [
 function makeallplay() {
   Array.from(document.getElementsByClassName("songItemplay")).forEach(
     (Element) => {
-      Element.classList.remove("fa-circle-pause");
-      Element.classList.add("fa-circle-play");
+      Element.classList.remove("fa-circle-play");
+      Element.classList.add("fa-circle-pause");
     }
   );
 }
