@@ -125,6 +125,11 @@ body {
   .mainPage .songList .songs .songList1 .songItem{
     width: 400px;
   }
+  .bottom .icons {
+    gap: 15px;
+    font-size: 40px;
+    cursor: pointer;
+  }
 }
 @media (min-width:768px) {
   .bottom{
