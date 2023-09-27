@@ -11,6 +11,8 @@ let currentTimeStart = document.getElementById("currentTimeStart");
 let currentTimeEnd = document.getElementById("currentTimeEnd");
 var imgchange = document.getElementById("imgchange");
 var songItemplay = document.getElementsByClassName("songItemplay");
+var cover = document.getElementsByClassName("cover");
+
 
 let songs = [
   {
@@ -126,14 +128,6 @@ let songs = [
     coverPath: "28.jpg",
   },
 ];
-function makeallplay() {
-  Array.from(document.getElementsByClassName("songItemplay")).forEach(
-    (Element) => {
-      Element.classList.remove("fa-circle-play");
-      Element.classList.add("fa-circle-pause");
-    }
-  );
-}
 
 audioSong.addEventListener("ended", () => {
   songindex++;
@@ -179,6 +173,15 @@ customRange2.addEventListener("change", () => {
 });
 //   make all play
 
+function makeallplay() {
+  Array.from(document.getElementsByClassName("songItemplay")).forEach(
+    (Element) => {
+      Element.classList.remove("fa-circle-pause");
+      Element.classList.add("fa-circle-play");
+    }
+  );
+}
+
 //   play song on click
 
 Array.from(document.getElementsByClassName("songItemplay")).forEach(
@@ -186,6 +189,7 @@ Array.from(document.getElementsByClassName("songItemplay")).forEach(
     Element.addEventListener("click", (e) => {
       songindex = parseInt(e.target.id);
       Songname.innerText = songs[songindex].songName;
+      document.getElementById("imgchange").src=songs[songindex].coverPath;
       makeallplay();
       e.target.classList.remove("fa-circle-play");
       e.target.classList.add("fa-circle-pause");
