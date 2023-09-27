@@ -126,7 +126,17 @@ let songs = [
     coverPath: "28.jpg",
   },
 ];
-
+function makeallplay() {
+  Array.from(document.getElementsByClassName("songItemplay")).forEach(
+    (Element) => {
+      Element.classList.remove("fa-circle-pause");
+      Element.classList.add("fa-circle-play");
+    }
+  );
+}
+if (audioSong.paused) {
+  makeallplay();
+}
 audioSong.addEventListener("ended", () => {
   songindex++;
 
@@ -171,14 +181,6 @@ customRange2.addEventListener("change", () => {
 });
 //   make all play
 
-function makeallplay() {
-  Array.from(document.getElementsByClassName("songItemplay")).forEach(
-    (Element) => {
-      Element.classList.remove("fa-circle-pause");
-      Element.classList.add("fa-circle-play");
-    }
-  );
-}
 //   play song on click
 
 Array.from(document.getElementsByClassName("songItemplay")).forEach(
