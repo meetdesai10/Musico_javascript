@@ -126,17 +126,35 @@ let songs = [
     coverPath: "28.jpg",
   },
 ];
+// universal pause
 
+if (audioSong.paused) {
+  makeallopacity();
+  masterplay.classList.remove("fa-circle-pause");
+  masterplay.classList.add("fa-circle-play");
+}
 audioSong.addEventListener("ended", () => {
   songindex++;
 
   if (songindex >= songs.length) {
     songindex = 0; //
+    makeallopacity();
+    playAnimation[songindex].style.opacity = 1;
+    masterplay.classList.remove("fa-circle-play");
+    masterplay.classList.add("fa-circle-pause");
+  } else if (audioSong.paused || audioSong.currentTime == 0) {
+    makeallopacity();
+    masterplay.classList.remove("fa-circle-play");
+    masterplay.classList.add("fa-circle-pause");
+    playAnimation[songindex].style.opacity = 1;
+  } else {
+    masterplay.classList.remove("fa-circle-pause");
+    masterplay.classList.add("fa-circle-play");
+    playAnimation[songindex].style.opacity = 0;
   }
 
   audioSong.src = songs[songindex].filepath;
   audioSong.play();
-
   Songname.innerText = songs[songindex].songName;
   imgchange.src = songs[songindex].coverPath;
 
@@ -160,8 +178,6 @@ audioSong.addEventListener("timeupdate", () => {
   if (progress == 100) {
     masterplay.classList.remove("fa-circle-pause");
     masterplay.classList.add("fa-circle-play");
-    songItemplay[songindex].classList.remove("fa-circle-pause");
-    songItemplay[songindex].classList.add("fa-circle-play");
   }
 });
 
